@@ -1,0 +1,38 @@
+@use "../core/index" as *;
+
+.companies {
+  &__inner {
+    @include container;
+    padding-inline: $space-5;
+
+    @include tablet {
+      padding: $space-0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-color: $level-1 $base;
+    scrollbar-width: thin;
+
+    &-item {
+      @include flex-center;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 1px $level-1;
+      max-width: 340px;
+      width: 100%;
+      min-height: 140px;
+
+      @include tablet {
+        max-width: 384px;
+      }
+    }
+
+    @include tablet {
+      overflow-x: hidden;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

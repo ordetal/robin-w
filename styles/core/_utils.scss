@@ -1,0 +1,17 @@
+@use "./mixins" as *;
+@use "./media" as *;
+@use "./variables" as *;
+
+.wrapper {
+  @include font-family;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: 88px;
+  background-color: $base;
+  color: $text;
+
+  @include mobile {
+    margin-top: 72px;
+  }
+}

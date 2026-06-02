@@ -1,0 +1,153 @@
+@use "../core/index" as *;
+
+.header {
+  @include flex-center;
+
+  &__inner {
+    padding: $space-11 $space-7 $space-11 $space-0;
+    background: $gradient-two-tone;
+
+    @include tablet {
+      background: $base;
+    }
+
+    @include tablet-sm {
+      padding: $space-0;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: $space-10;
+
+    position: absolute;
+    top: $space-0;
+    right: $space-0;
+    left: $space-0;
+
+    height: 88px;
+    background: $gradient-two-tone;
+
+    @include tablet {
+      padding-inline: $space-7;
+      background: $base;
+    }
+
+    @include mobile {
+      height: 72px;
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    &-btn {
+      position: absolute;
+      top: $space-6;
+      right: $space-7;
+      width: 24px;
+      height: 24px;
+      list-style: none;
+    }
+
+    &-img {
+      width: 24px;
+      height: 24px;
+    }
+
+    @include tablet-sm {
+      display: block;
+    }
+  }
+
+  &__logo {
+    &-img {
+      width: 79px;
+      height: 24px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    height: 100%;
+
+    &-item {
+      padding-inline: $space-5;
+
+      &:last-child {
+        background-color: $primary;
+      }
+    }
+
+    &-link {
+      @include flex-center;
+      @include body($text-xs);
+      @include link(false);
+      @include link-effects;
+      height: 100%;
+    }
+
+    @include tablet-sm {
+      display: none;
+    }
+  }
+
+  &__about {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+
+    &-img {
+      @include image(750px, 650px);
+
+      @include mobile {
+        height: 476px;
+      }
+
+      @include mobile-sm {
+        height: 288px;
+      }
+    }
+
+    &-content {
+      max-width: 738px;
+      margin-left: -13%;
+
+      @include tablet-sm {
+        padding: $space-8 $space-4;
+      }
+
+      @include mobile {
+        margin-left: $space-0;
+      }
+    }
+
+    &-title {
+      @include heading($text-2xl);
+      margin-bottom: $space-6;
+
+      &--last-line {
+        color: rgba($color: $text, $alpha: 0.5);
+      }
+
+      @include tablet {
+        @include heading($text-xl);
+      }
+
+      @include mobile {
+        @include heading($text-lg);
+        margin-bottom: $space-3;
+      }
+    }
+
+    &-bio {
+      @include body($text-sm);
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

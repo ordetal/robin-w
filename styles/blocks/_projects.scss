@@ -1,0 +1,129 @@
+@use "../core/index" as *;
+
+.projects {
+  @include flex-center;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: $space-4;
+    padding: $space-12 $space-10;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      row-gap: $space-8;
+      padding: $space-11 $space-7;
+    }
+
+    @include tablet-sm {
+      padding: $space-9 $space-4;
+    }
+  }
+
+  &__content {
+    max-width: 572px;
+
+    &-overline {
+      @include overline;
+      text-transform: uppercase;
+      color: $light-grey;
+    }
+
+    &-title {
+      @include heading($text-xl);
+      margin-block: $space-1 $space-11;
+
+      @include mobile {
+        @include heading($text-lg);
+      }
+    }
+
+    @include tablet {
+      max-width: 688px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: $space-5;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &:last-child {
+        @include flex-center;
+        min-height: 210px;
+
+        @include tablet {
+          min-height: 0;
+        }
+      }
+    }
+
+    &-img {
+      @include image(636px);
+
+      @include tablet {
+        max-height: 620px;
+        max-width: 688px;
+      }
+    }
+
+    &-content {
+      max-width: 636px;
+      padding: $space-7 $space-6;
+      background-color: $level-1;
+
+      @include tablet {
+        max-width: 688px;
+      }
+    }
+
+    &-title {
+      @include heading($text-md);
+      margin-bottom: $space-2;
+    }
+
+    &-text {
+      @include body($text-sm);
+      color: $light-grey;
+    }
+
+    &-button {
+      @include button;
+      @include button-effects;
+      text-transform: uppercase;
+      padding-inline: $space-6;
+      height: 75px;
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &--top {
+      & > :first-child {
+        margin-bottom: -$space-5;
+
+        @include tablet {
+          margin-bottom: -$space-8;
+        }
+      }
+    }
+
+    &--bottom {
+      & > :last-child {
+        @include tablet {
+          margin-bottom: -$space-8;
+        }
+      }
+    }
+
+    @include tablet {
+      row-gap: $space-8;
+    }
+  }
+}

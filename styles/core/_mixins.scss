@@ -1,0 +1,92 @@
+@use "./variables" as *;
+@use "./media" as *;
+
+@mixin font-family {
+  font-family: $font;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@mixin heading($size) {
+  font-size: $size;
+  font-weight: bold;
+}
+
+@mixin body($size) {
+  font-size: $size;
+  font-weight: normal;
+}
+
+@mixin overline {
+  font-size: $text-xs;
+  font-weight: bold;
+}
+
+@mixin button($color: transparent) {
+  font-size: $text-xs;
+  font-weight: bold;
+  background-color: $color;
+  color: $text;
+  border: 1px solid $primary;
+}
+
+@mixin button-effects {
+  @include hover {
+    background-color: $primary;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &:active {
+    transform: scale(1.05);
+  }
+}
+
+@mixin link($isUnderline: false, $color: $text) {
+  @if $isUnderline {
+    text-decoration-color: $light-grey;
+    text-underline-offset: $space-1;
+  } @else {
+    text-decoration: none;
+  }
+
+  color: $color;
+}
+
+@mixin link-effects {
+  @media (hover: hover) {
+    &:hover {
+      color: $light-grey;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      color: $light-grey;
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+}
+
+@mixin image($max-width, $height: auto) {
+  max-width: $max-width;
+  width: 100%;
+  height: $height;
+  object-fit: cover;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin container($max-width: $desktop) {
+  max-width: $max-width;
+  width: 100%;
+  margin-inline: auto;
+}

@@ -1,0 +1,74 @@
+@use "../core/index" as *;
+
+.skillset {
+  @include flex-center;
+
+  &__inner {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    column-gap: $space-5;
+    padding: $space-12 $space-10;
+
+    @include tablet {
+      flex-direction: column;
+      padding: $space-11 $space-7;
+      row-gap: $space-8;
+    }
+
+    @include tablet-sm {
+      padding: $space-9 $space-4;
+    }
+  }
+
+  &__content {
+    &-title {
+      @include heading($text-xl);
+      margin-bottom: $space-4;
+
+      @include mobile-sm {
+        @include heading($text-lg);
+      }
+    }
+
+    &-text {
+      @include body($text-sm);
+      max-width: 368px;
+      color: $light-grey;
+
+      @include tablet {
+        max-width: 688px;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 416px));
+    gap: $space-8 $space-5;
+
+    &-img {
+      width: 32px;
+      height: 32px;
+    }
+
+    &-title {
+      @include heading($text-md);
+      margin-block: $space-5 $space-2;
+    }
+
+    &-text {
+      @include body($text-xs);
+      max-width: 368px;
+      color: $light-grey;
+
+      @include tablet {
+        max-width: 284px;
+      }
+    }
+
+    @include mobile-sm {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

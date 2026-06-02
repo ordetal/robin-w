@@ -1,0 +1,95 @@
+@use "../core/index" as *;
+
+.footer {
+  background-color: $level-1;
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: $space-11 $space-10;
+
+    @include tablet {
+      padding-inline: $space-7;
+    }
+
+    @include tablet-sm {
+      padding: $space-8 $space-4;
+    }
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+
+    @include mobile {
+      flex-direction: column;
+      row-gap: $space-8;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    row-gap: $space-6;
+
+    &-img {
+      width: 130px;
+      height: 40px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    column-gap: $space-3;
+
+    &-social {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: $space-5;
+
+    @include mobile {
+      grid-template-columns: repeat(1, 1fr);
+      margin-bottom: $space-8;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 196px));
+
+    &-item {
+      height: 48px;
+    }
+
+    &-link {
+      @include body($text-xs);
+      @include link(false);
+      @include link-effects;
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(1, minmax(0, 154px));
+    }
+
+    @include tablet-sm {
+      grid-template-columns: repeat(1, minmax(0, 120px));
+    }
+  }
+
+  &__text {
+    @include body($text-xs);
+    color: $light-grey;
+
+    @include tablet {
+      max-width: 329px;
+    }
+  }
+}

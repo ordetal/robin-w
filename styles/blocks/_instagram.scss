@@ -1,0 +1,63 @@
+@use "../core/index" as *;
+
+.instagram {
+  background-color: $violet-accent;
+
+  &__inner {
+    @include container;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include tablet-sm {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-inline: $space-10;
+    min-height: 450px;
+
+    &-link {
+      @include body($text-xs);
+      @include link(true, $level-1);
+      @include link-effects;
+    }
+
+    @include tablet {
+      padding-inline: $space-7;
+    }
+
+    @include mobile {
+      row-gap: $space-11;
+      padding: $space-8 $space-4;
+    }
+  }
+
+  &__intro {
+    &-title {
+      @include heading($text-xl);
+      margin-bottom: $space-4;
+      color: $level-1;
+
+      @include mobile {
+        @include heading($text-lg);
+      }
+    }
+
+    &-text {
+      @include body($text-sm);
+      color: $dark-grey;
+    }
+  }
+
+  &__img {
+    @include image(720px, 600px);
+
+    @include mobile {
+      height: 450px;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+@use "../core/index" as *;
+
+.experience {
+  @include flex-center;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: $space-7;
+    padding: $space-12 $space-10;
+
+    @include tablet {
+      padding: $space-11 $space-7;
+    }
+
+    @include tablet-sm {
+      padding: $space-8 $space-4;
+    }
+  }
+
+  &__content {
+    max-width: 689px;
+
+    &-overline {
+      @include overline;
+      text-transform: uppercase;
+      color: $light-grey;
+    }
+
+    &-title {
+      @include heading($text-xl);
+      margin-top: $space-1;
+
+      @include mobile {
+        @include heading($text-lg);
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 416px));
+    column-gap: $space-4;
+
+    &-number {
+      font-size: $text-3xl;
+      font-weight: normal;
+      color: $light-grey;
+    }
+
+    &-title {
+      @include heading($text-md);
+      margin-bottom: $space-4;
+
+      &--google {
+        color: $green-accent;
+      }
+
+      &--facebook {
+        color: $blue-accent;
+      }
+
+      &--dribbble {
+        color: $pink-accent;
+      }
+    }
+
+    &-comment {
+      @include body($text-xs);
+      max-width: 368px;
+      color: $light-grey;
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: $space-7;
+    }
+  }
+}

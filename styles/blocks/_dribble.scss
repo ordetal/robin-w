@@ -1,0 +1,48 @@
+@use "../core/index" as *;
+
+.dribble {
+  @include flex-center;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: $space-12;
+    padding: $space-12 $space-10;
+
+    @include tablet {
+      padding: $space-11 $space-7;
+    }
+
+    @include tablet-sm {
+      padding: $space-9 $space-4;
+    }
+
+    @include mobile {
+      row-gap: $space-9;
+    }
+  }
+
+  &__content {
+    &-title {
+      @include heading($text-xl);
+      margin-bottom: $space-4;
+    }
+
+    &-text {
+      @include body($text-sm);
+      max-width: 636px;
+      margin-bottom: $space-7;
+      color: $light-grey;
+    }
+
+    &-link {
+      @include body($text-xs);
+      @include link(true);
+      @include link-effects;
+    }
+  }
+
+  &__img {
+    @include image(1076px);
+  }
+}

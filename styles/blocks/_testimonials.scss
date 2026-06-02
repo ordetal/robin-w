@@ -1,0 +1,95 @@
+@use "../core/index" as *;
+
+.testimonials {
+  @include flex-center;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: $space-4;
+    padding: $space-12 $space-10;
+
+    @include tablet {
+      padding: $space-11 $space-7;
+    }
+
+    @include tablet-sm {
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: $space-9;
+      padding: $space-8 $space-4;
+    }
+  }
+
+  &__content {
+    max-width: 588px;
+
+    &-title {
+      @include heading($text-xl);
+      margin-bottom: $space-5;
+
+      @include mobile {
+        @include heading($text-lg);
+      }
+    }
+
+    &-text {
+      @include body($text-sm);
+      max-width: 636px;
+      margin-bottom: $space-7;
+      color: $light-grey;
+    }
+
+    &-link {
+      @include body($text-xs);
+      @include link(true);
+      @include link-effects;
+    }
+  }
+
+  &__items {
+    display: grid;
+    row-gap: $space-12;
+
+    @include tablet {
+      row-gap: $space-9;
+    }
+
+    @include tablet-sm {
+      row-gap: $space-8;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    max-width: 636px;
+
+    &-img {
+      @include image(636px);
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      row-gap: $space-9;
+      border: 1px solid $dark-grey;
+      padding: $space-9;
+      max-width: 636px;
+
+      @include tablet {
+        padding: $space-6;
+      }
+    }
+
+    &-bq {
+      @include heading($text-md);
+      margin: $space-0;
+    }
+
+    &-author {
+      @include body($text-sm);
+      color: $light-grey;
+    }
+  }
+}

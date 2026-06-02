@@ -1,0 +1,86 @@
+@use "../core/index" as *;
+
+.start {
+  &__inner {
+    display: flex;
+    justify-content: center;
+    column-gap: $space-5;
+    padding: $space-12 $space-10;
+
+    @include tablet {
+      padding: $space-11 $space-7;
+    }
+
+    @include tablet-sm {
+      padding: $space-8 $space-4;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      row-gap: $space-8;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: $space-5;
+
+    &-title {
+      @include heading($text-xl);
+
+      @include mobile {
+        @include heading($text-lg);
+      }
+    }
+
+    &-text {
+      @include body($text-sm);
+      color: $light-grey;
+      max-width: 526px;
+    }
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    row-gap: $space-7;
+    max-width: 526px;
+    width: 100%;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    row-gap: $space-1;
+
+    &-label {
+      @include body($text-xs);
+    }
+
+    &-input {
+      @include body($text-xs);
+      background-color: $level-1;
+      color: $text;
+      padding: $space-1;
+      height: 52px;
+      border: none;
+    }
+
+    &-textarea {
+      background-color: $level-1;
+      min-height: 100px;
+      padding: $space-1;
+      color: $text;
+      border: none;
+      resize: none;
+    }
+  }
+
+  &__button {
+    @include button($primary);
+    @include button-effects;
+    text-transform: uppercase;
+    height: 75px;
+  }
+}

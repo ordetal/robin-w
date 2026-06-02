@@ -1,0 +1,47 @@
+$base: #000000;
+$level-1: #181823;
+$light-grey: #8491a0;
+$dark-grey: #5b6876;
+$text: #fff;
+$primary: #5221e6;
+$green-accent: #3cc74e;
+$pink-accent: #e95d90;
+$blue-accent: #609bff;
+$peach-accent: #fff3e4;
+$violet-accent: #fbe4ff;
+$gradient-two-tone: linear-gradient(
+  to right,
+  $base 0%,
+  $base 40%,
+  $level-1 40%,
+  $level-1 100%
+);
+
+$font: "Sen", sans-serif;
+
+$text-3xl: 117px;
+$text-2xl: 78px;
+$text-xl: 55px;
+$text-lg: 32px;
+$text-md: 24px;
+$text-sm: 18px;
+$text-xs: 16px;
+
+$space-12: 120px;
+$space-11: 80px;
+$space-10: 72px;
+$space-9: 64px;
+$space-8: 48px;
+$space-7: 40px;
+$space-6: 32px;
+$space-5: 24px;
+$space-4: 20px;
+$space-3: 16px;
+$space-2: 12px;
+$space-1: 8px;
+$space-0: 0;
+
+$max-width-xl: 689px;
+$max-width-lg: 636px;
+$max-width-md: 636px;
+$max-width-sm: 368px;

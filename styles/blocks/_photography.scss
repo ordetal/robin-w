@@ -1,0 +1,95 @@
+@use "../core/index" as *;
+
+.photography {
+  @include flex-center;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    padding: $space-12 $space-10;
+
+    @include tablet {
+      padding: $space-11 $space-7;
+    }
+
+    @include tablet-sm {
+      padding: $space-8 $space-4;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: $space-5;
+    margin-bottom: $space-9;
+
+    &-title {
+      @include heading($text-xl);
+
+      @include mobile {
+        @include heading($text-lg);
+      }
+    }
+
+    &-text {
+      @include body($text-sm);
+      max-width: 588px;
+      color: $light-grey;
+    }
+
+    @include mobile {
+      margin-bottom: $space-7;
+    }
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: $space-5;
+    margin-bottom: $space-7;
+    max-width: 490px;
+
+    &-button {
+      @include button;
+      @include button-effects;
+      text-transform: uppercase;
+      padding: $space-3 $space-2;
+      height: 51px;
+
+      &--active {
+        background-color: $primary;
+      }
+    }
+
+    @include mobile {
+      row-gap: $space-5;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__photos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-5;
+
+    &-img {
+      @include image(306px);
+
+      @include tablet {
+        max-width: 332px;
+      }
+
+      @include mobile-sm {
+        max-width: 100%;
+      }
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile-sm {
+      grid-template-columns: repeat(1, 1fr);
+     }
+  }
+}
